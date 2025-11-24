@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Bienvenid@, {{ request.user.username }}</h2>
+
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">Resumen de tus muestras</h5>
+        <p class="card-text">
+            Has sometido <strong>{{ sample_count }}</strong> muestras.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <a class="btn btn-secondary w-100 mb-2" href="{% url 'add_sample' %}">
+            Añadir Nueva Muestra
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="btn btn-secondary w-100 mb-2" href="{% url 'my_samples' %}">
+            Ver Mis Muestras
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="btn btn-secondary w-100 mb-2" href="/admin/">
+            Panel de Administración
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Muestra{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Editar Muestra</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="mb-3" id="div_{{ field.id_for_label }}">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            <a href="{% url 'my_samples' %}" class="btn btn-outline-secondary">Cancelar</a>
+        </form>
+
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const seqCheckbox = document.getElementById("id_secuenciacion");
+    if (!seqCheckbox) return;
+
+    const campos = ["id_fecha_secuenciacion","id_plataforma","id_longitud","id_archivo"];
+
+    const toggleCampos = () => {
+        campos.forEach(id => {
+            const input = document.getElementById(id);
+            if (!input) return;
+            const wrapper = document.getElementById('div_' + id) || input.closest('.mb-3');
+            if (wrapper) wrapper.style.display = seqCheckbox.checked ? "" : "none";
+        });
+    };
+
+    seqCheckbox.addEventListener("change", toggleCampos);
+    toggleCampos();
+});
+</script>
+
+{% endblock %}
+
+

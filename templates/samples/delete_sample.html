@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar Muestra{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-danger">Eliminar Muestra</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <p>¿Estás seguro que deseas eliminar la muestra <strong>{{ sample.muestra_id }}</strong>?</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+            <a href="{% url 'my_samples' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

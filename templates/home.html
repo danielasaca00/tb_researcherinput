@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %} 
+
+{% block title %}TB Research Platform{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center text-center" style="background: linear-gradient(to bottom, #ffffff, #198754);">
+    
+    <!-- Logo -->
+    <img src="{% static 'img/logo.png' %}" alt="Logo TB" class="mb-4" style="max-width:150px;">
+
+    <!-- Nombre de la página -->
+    <h1 class="display-3 fw-bold mb-3">Tuberculosis en México</h1>
+
+    <!-- Pequeña descripción -->
+    <p class="lead mb-4 px-3 px-md-5">
+        Plataforma para el seguimiento y gestión de muestras de investigación de Tuberculosis en México.
+        Añade, edita y exporta tus datos de forma segura y eficiente.
+    </p>
+
+    <!-- Botones principales -->
+    <div class="mb-4">
+        <a href="{% url 'register' %}" class="btn btn-success btn-lg me-3 shadow">Registrarse</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-success btn-lg shadow">Iniciar Sesión</a>
+    </div>
+
+    <!-- Características en cards -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Añadir Muestras</h5>
+                    <p class="card-text">Registra nuevas muestras de pacientes de forma rápida y segura.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Editar y Gestionar</h5>
+                    <p class="card-text">Actualiza datos de tus muestras y controla la información de manera centralizada.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Exportar CSV</h5>
+                    <p class="card-text">Solicita los datos recabados para análisis o informes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Información de contacto -->
+    <footer class="mt-5 text-muted">
+        <p>En caso de problemas, contacta: <a href="mailto:tuberculosis.uabc@gmail.com">tuberculosis.uabc@gmail.com</a></p>
+    </footer>
+
+</div>
+{% endblock %}
+
+

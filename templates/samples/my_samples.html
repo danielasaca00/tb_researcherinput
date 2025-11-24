@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Mis Muestras{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Mis Muestras</h2>
+
+<table class="table table-striped table-bordered shadow-sm">
+    <thead class="table-success">
+        <tr>
+            <th>ID</th>
+            <th>Muestra ID</th>
+            <th>Fecha de Muestreo</th>
+            <th>Lugar de Muestreo</th>
+            <th>Tipo de Muestra</th>
+            <th>Enfermedad del Paciente</th>
+            <th>Secuenciación</th>
+            <th>Fecha Secuenciación</th>
+            <th>Plataforma</th>
+            <th>Longitud</th>
+            <th>Archivo</th>
+            <th>Notas</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for sample in samples %}
+        <tr>
+            <td>{{ sample.id }}</td>
+            <td>{{ sample.muestra_id }}</td>
+            <td>{{ sample.fecha_muestreo }}</td>
+            <td>{{ sample.lugar_muestreo }}</td>
+            <td>{{ sample.tipo_muestra }}</td>
+            <td>{{ sample.enfermedad_paciente }}</td>
+            <td>{{ sample.secuenciacion|yesno:"Sí,No" }}</td>
+            <td>{{ sample.fecha_secuenciacion }}</td>
+            <td>{{ sample.plataforma }}</td>
+            <td>{{ sample.longitud }}</td>
+            <td>
+                {% if sample.archivo %}
+                    <a href="{{ sample.archivo.url }}" target="_blank">Ver Archivo</a>
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+            <td>{{ sample.notas }}</td>
+
+            <td>
+                <a class="btn btn-sm btn-warning" href="{% url 'edit_sample' sample.pk %}">Editar</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'delete_sample' sample.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'add_sample' %}" class="btn btn-success mt-3">Añadir Nueva Muestra</a>
+{% endblock %}
+
+
