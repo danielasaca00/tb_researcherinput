@@ -2,7 +2,7 @@ import os
 import sys
 
 # Añade la ruta a tu proyecto
-project_home = '/home/tu_usuario/tb_researcherinput'
+project_home = '/home/danielasc/tb_researcherinput'
 if project_home not in sys.path:
     sys.path.append(project_home)
 
