@@ -115,4 +115,4 @@ def dashboard(request):
     })
 
 def home(request):
-    return render(request, 'base.html')  # o la plantilla que uses
+    return render(request, 'home.html')  # o la plantilla que uses
