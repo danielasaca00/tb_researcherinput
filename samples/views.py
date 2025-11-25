@@ -7,7 +7,10 @@ import csv
 from .forms import SampleForm
 from .models import Sample
 
+from django.contrib.auth.models import User
 
+if not User.objects.filter(username='admin').exists():
+    User.objects.create_superuser('admin', 'tuberculosis.uabc@gmail.com', 'TBuabc123.')
 def home(request):
     return render(request, 'home.html')
 
