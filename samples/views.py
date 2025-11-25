@@ -113,3 +113,6 @@ def dashboard(request):
     return render(request, 'samples/dashboard.html', {
         'sample_count': sample_count
     })
+
+def home(request):
+    return render(request, 'base.html')  # o la plantilla que uses
