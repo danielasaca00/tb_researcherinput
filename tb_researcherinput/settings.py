@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w-ki_wqu2**gfzshf(cr+$f7crk0h1jbltu#3zhynu@1d4)tw6'
 
 DEBUG = False
-ALLOWED_HOSTS = ['https://tb-researcherinput.onrender.com/']  # Render asigna dominio
+ALLOWED_HOSTS = ['tb-researcherinput.onrender.com']
 
 
 INSTALLED_APPS = [
